@@ -1,7 +1,33 @@
 // PARTIALS =============================
 @import "./partials/setup";
+@import "./partials/global";
 @import "./partials/visually-hidden";
 @import "./partials/skip-link";
 @import "./partials/mixins";
 
+// VARIABLES =======================
+// COLOR ------
+$color-1:  #14263d;
+$color-2: #B0ABE3;
+$color-3: #c91e8d;
+$color-5: #232323;
+$color-5:#FFFFFF;
+
+// GENERAL BODY STYLES =======================
+
+html {
+    font-size: 62.5%;
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+// USE CAMEL CASE!! ===========================
+
+// HEADER ======================================
 
