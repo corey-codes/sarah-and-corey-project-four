@@ -1,5 +1,19 @@
+//     // movieApp.genre;
+//     // movieApp.collectInfo = function () {
+//     //     //GENRE (SET TO EXCLUDE PORN)
+//     //     //YEAR
+//     //     // let genre;
+//     // }
+// ​
+//     //PASS ALONG USER PROVIDED SEARCH PARAMETERS 
+//     movieApp.getInfo = function () {
+//     }
+
+//     
+
 // NAMESPACING =========================================================
 const movieApp = {};
+
 // CONVERT GENRE CHOICE INTO NUMBER CODE FOR API
 movieApp.genreCodes = {
     action: 28,
@@ -24,27 +38,18 @@ movieApp.genreCodes = {
 movieApp.genre = "";
 movieApp.selectedGenreID = "";
 
-const movieResult = 
+// const movieResult = 
+let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
-//     // movieApp.genre;
-//     // movieApp.collectInfo = function () {
-//     //     //GENRE (SET TO EXCLUDE PORN)
-//     //     //YEAR
-//     //     // let genre;
-//     // }
-// ​
-//     //PASS ALONG USER PROVIDED SEARCH PARAMETERS 
-//     movieApp.getInfo = function () {
-//     }
-
-//     
+    // `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}`;
 
 // API CALL =========================
 movieApp.getMovies = function () {
 
 // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
     const apiKey = "20e7d413ebcc68553bf10a0da5428763";
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}`;
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}&include_adult=falsewith_original_language='en-US'`;
+    
 
     return $.ajax({
         url: apiUrl,
@@ -56,20 +61,13 @@ movieApp.getMovies = function () {
         // }
 
     }).then(function(resultsObject) {
-        // console.log('we have results!');
-        movieApp.displayMovies(resultsObject);
-        
         const movieResults = resultsObject; 
-         
         const resultLength = movieResults.results.length
-                 
         const randomNumber = (Math.floor(Math.random() * resultLength));
-         
         const filteredResults = movieResults.results[randomNumber];
-        console.log(filteredResults, 'yay!');
-
-        // NEED TO ADD FILTERS FOR PORN AND ENGLISH
-       
+        console.log(filteredResults);
+        
+        movieApp.displayMovies(filteredResults);
     }); 
 }; 
 
@@ -78,36 +76,31 @@ movieApp.getMovies = function () {
 //         //TITLE
 //         //SUMMARY
 
-movieApp.displayMovies = function(Result) {
-    console.log('display our movie!!', Result);
-
-  
+movieApp.displayMovies = function(results) {
     
-    
-    // $('.resultsContent').append(`
-    //         <div class="resultsCopy">
-    //             <h2>${movieResult.original_title}</h2>
-    //             <p>${artPiece.principalOrFirstMaker}</p>
-    //             <img src="${artPiece.webImage.url}">
-    //        </div>`
-    // )
+    $('.resultsContent').append(  
+        `<h2>${results.title}</h2>
+        <p>${results.overview}</p>
+        <img src="${apiImagePath}${results.poster_path}">`
+        ) 
+        // console.log(results.poster_path);
 }
 
 
 // function for event listeners
 movieApp.eventListeners = function () {
-    // grab user input (selected drop-down menu option)
+// grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
-        console.log('Helloooo');
+        
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
-        console.log(movieApp.genre);
-        // get back a genre as a string
+        
+// get back a genre as a string
         movieApp.getGenreId(movieApp.genre);
-        console.log(movieApp.getMovies);
+        
         movieApp.getMovies();
     });
-    console.log("test")
+    
 }
 
 
@@ -115,26 +108,20 @@ movieApp.eventListeners = function () {
 
 // let genre2 = movieApp.genre;
 movieApp.getGenreId = function (movieGenre) {
-    // console.log(movieGenre);
+    
     let userSelectedMovieGenre = movieGenre;
     let movieArray = movieApp.genreCodes;
     movieApp.selectedGenreID = movieArray[userSelectedMovieGenre];
-    // console.log(movieApp.selectedGenreID);
-
-    // console.log(movieApp.genreCodes);
-
-    // movieApp.selectedGenreID = movieArray.userSelectedMovieGenre;
-    // console.log(movieApp.selectedGenreID);
 }
-// ​
+
 // START APP
 movieApp.init = function () {
     movieApp.eventListeners();
-    console.log(`initializing`);
+    
 }
 // DOC READY
 $(function () {
     movieApp.init();
-    console.log("document is ready");
+    
 
 });
