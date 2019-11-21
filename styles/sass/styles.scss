@@ -1,7 +1,90 @@
 // PARTIALS =============================
 @import "./partials/setup";
+@import "./partials/global";
 @import "./partials/visually-hidden";
 @import "./partials/skip-link";
 @import "./partials/mixins";
 
+// VARIABLES =======================
+// COLOR ------
+$color-1:  #14263d;
+$color-2: #B0ABE3;
+$color-3: #c91e8d;
+$color-5: #232323;
+$color-5:#FFFFFF;
 
+// GENERAL BODY STYLES =======================
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Nunito', sans-serif;
+    
+}
+
+img {
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+    margin: 0 auto;  
+}
+
+// USE CAMEL CASE!! ===========================
+
+* {
+    border: 1px solid red;
+}
+
+// SECTION STYLES ==============================
+
+.header, .searchArea, .resultsArea, .footer {
+    padding: 3rem 0;
+}
+
+// HEADER ======================================
+
+header{
+    height: 90vh;
+    display: flex;
+}
+
+
+
+
+//SEARCH ========================================
+
+.searchArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        padding: 0 3rem;
+        align-items: center;
+
+        select {
+            width: 80%;
+        }
+
+        button {
+            display: inline-block;
+        }
+    }
+}
+
+
+// RESULTS ======================================
+
+// FOOTER =======================================
+.footer {
+    text-align: center;
+}

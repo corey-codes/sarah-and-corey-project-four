@@ -1,0 +1,54 @@
+// REMOVE DEFAULTS & STANDARD STYLES ======================
+body, h1, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Libre Baskerville';
+    line-height: 6rem;
+    margin: 2rem 0;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+p, a {
+    font-family: 'Nunito';
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    border: none;
+}
+
+textarea {
+    border: none;
+}

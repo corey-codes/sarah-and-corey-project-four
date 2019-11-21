@@ -179,6 +179,59 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   overflow: hidden;
 }
 
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Libre Baskerville';
+  line-height: 6rem;
+  margin: 2rem 0;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 3.5rem;
+}
+
+p, a {
+  font-family: 'Nunito';
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+button {
+  border: none;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  border: none;
+}
+
+textarea {
+  border: none;
+}
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
@@ -204,4 +257,77 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 .skip-link:focus {
   left: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+* {
+  border: 1px solid red;
+}
+
+.header, .searchArea, .resultsArea, .footer {
+  padding: 3rem 0;
+}
+
+header {
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.searchArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchArea form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  padding: 0 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchArea form select {
+  width: 80%;
+}
+
+.searchArea form button {
+  display: inline-block;
+}
+
+.footer {
+  text-align: center;
 }
