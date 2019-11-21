@@ -75,6 +75,8 @@ movieApp.getMovies = function () {
 //         //IMAGE OF MOVIE POSTER
 //         //TITLE
 //         //SUMMARY
+console.log("hi");
+
 
 movieApp.displayMovies = function(results) {
     
