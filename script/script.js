@@ -27,29 +27,20 @@ movieApp.genreCodes = {
 movieApp.genre = "";
 movieApp.selectedGenreID = "";
 
-
-
-console.log(movieApp.selectedGenreID);
+const movieResult = 
 
 //     // movieApp.genre;
 //     // movieApp.collectInfo = function () {
 //     //     //GENRE (SET TO EXCLUDE PORN)
 //     //     //YEAR
 //     //     // let genre;
-
-
 //     // }
 // ​
 //     //PASS ALONG USER PROVIDED SEARCH PARAMETERS 
 //     movieApp.getInfo = function () {
 //     }
 
-//     //DYNAMICALLY POPULATE MOVIE INFO 
-//         //IMAGE OF MOVIE POSTER
-//         //TITLE
-//         //SUMMARY
-//     movieApp.displayInfo = function () {
-//     }  
+//     
 
 // API CALL =========================
 movieApp.getMovies = function () {
@@ -69,11 +60,33 @@ movieApp.getMovies = function () {
     }).then(function(results) {
         console.log('we have results!');
         movieApp.displayMovies(results);
-    });
+
+        const movieResults = results; 
+
+        const resultLength = movieResults.total_results
+        
+        const randomNumber = (Math.floor(Math.random() * resultLength));
+    }); 
 }; 
 
-movieApp.displayMovies = function(movieResult) {
-    console.log('display our movie!!', movieResult);
+//DYNAMICALLY POPULATE MOVIE INFO 
+//         //IMAGE OF MOVIE POSTER
+//         //TITLE
+//         //SUMMARY
+
+movieApp.displayMovies = function(Result) {
+    console.log('display our movie!!', Result);
+
+  
+    
+    
+    // $('.resultsContent').append(`
+    //         <div class="resultsCopy">
+    //             <h2>${movieResult.original_title}</h2>
+    //             <p>${artPiece.principalOrFirstMaker}</p>
+    //             <img src="${artPiece.webImage.url}">
+    //        </div>`
+    // )
 }
 
 
