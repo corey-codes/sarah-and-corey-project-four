@@ -66,7 +66,6 @@ movieApp.getMovies = function () {
         const randomNumber = (Math.floor(Math.random() * resultLength));
         const filteredResults = movieResults.results[randomNumber];
         console.log(filteredResults);
-        
         movieApp.displayMovies(filteredResults);
     }); 
 }; 
@@ -75,17 +74,34 @@ movieApp.getMovies = function () {
 //         //IMAGE OF MOVIE POSTER
 //         //TITLE
 //         //SUMMARY
-console.log("hi");
-
 
 movieApp.displayMovies = function(results) {
     
     $('.resultsContent').append(  
-        `<h2>${results.title}</h2>
-        <p>${results.overview}</p>
-        <img src="${apiImagePath}${results.poster_path}">`
+        `
+        <div class="resultsInfo">
+            <h2>${results.title}</h2>
+            <p>${results.overview}</p>
+            <img src="${apiImagePath}${results.poster_path}">
+        </div>`
         ) 
         // console.log(results.poster_path);
+}
+
+// RESET PAGE
+movieApp.resetPage = function() {
+    let $reset = $('#selectedGenre');
+    // console.log($reset);
+    
+    // reset genres drowp down
+    $reset[0].selectedIndex = 0;
+
+    // // reset results section
+    // // remove current movie+info
+    // $('.resultsInfo').remove();
+
+    // call fxn to get new movie
+    
 }
 
 
@@ -94,23 +110,26 @@ movieApp.eventListeners = function () {
 // grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
-        
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
         
-// get back a genre as a string
+        // get back a genre as a string
+        // reset results section
+        // remove current movie+info
+        $('.resultsInfo').remove();
+        movieApp.resetPage();
         movieApp.getGenreId(movieApp.genre);
-        
         movieApp.getMovies();
     });
-    
+
+    // event listener for reset button
+    // $('.resetBtn').on('click', function() {
+    //     // console.log("clicked");
+    //     movieApp.resetPage();
+    // })
 }
-
-
-
 
 // let genre2 = movieApp.genre;
 movieApp.getGenreId = function (movieGenre) {
-    
     let userSelectedMovieGenre = movieGenre;
     let movieArray = movieApp.genreCodes;
     movieApp.selectedGenreID = movieArray[userSelectedMovieGenre];
@@ -119,11 +138,8 @@ movieApp.getGenreId = function (movieGenre) {
 // START APP
 movieApp.init = function () {
     movieApp.eventListeners();
-    
 }
 // DOC READY
 $(function () {
     movieApp.init();
-    
-
 });
