@@ -1,6 +1,3 @@
-
-
-
 // NAMESPACING =========================================================
 const movieApp = {};
 // CONVERT GENRE CHOICE INTO NUMBER CODE FOR API
@@ -57,15 +54,22 @@ movieApp.getMovies = function () {
         //     api_key: apiKey,
         //     format: 'json'
         // }
-    }).then(function(results) {
-        console.log('we have results!');
-        movieApp.displayMovies(results);
 
-        const movieResults = results; 
-
-        const resultLength = movieResults.total_results
+    }).then(function(resultsObject) {
+        // console.log('we have results!');
+        movieApp.displayMovies(resultsObject);
         
+        const movieResults = resultsObject; 
+         
+        const resultLength = movieResults.results.length
+                 
         const randomNumber = (Math.floor(Math.random() * resultLength));
+         
+        const filteredResults = movieResults.results[randomNumber];
+        console.log(filteredResults, 'yay!');
+
+        // NEED TO ADD FILTERS FOR PORN AND ENGLISH
+       
     }); 
 }; 
 
