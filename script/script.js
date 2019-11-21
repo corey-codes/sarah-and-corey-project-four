@@ -28,6 +28,9 @@ movieApp.genre = "";
 movieApp.selectedGenreID = "";
 
 
+
+console.log(movieApp.selectedGenreID);
+
 //     // movieApp.genre;
 //     // movieApp.collectInfo = function () {
 //     //     //GENRE (SET TO EXCLUDE PORN)
@@ -48,12 +51,34 @@ movieApp.selectedGenreID = "";
 //     movieApp.displayInfo = function () {
 //     }  
 
+// API CALL =========================
+movieApp.getMovies = function () {
+
+// API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
+    const apiKey = "20e7d413ebcc68553bf10a0da5428763";
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}`;
+
+    return $.ajax({
+        url: apiUrl,
+        method: 'GET',
+        dataType: 'json',
+        // data: {
+        //     api_key: apiKey,
+        //     format: 'json'
+        // }
+    }).then(function(results) {
+        console.log('we have results!');
+        movieApp.displayMovies(results);
+    });
+}; 
+
+movieApp.displayMovies = function(movieResult) {
+    console.log('display our movie!!', movieResult);
+}
 
 
 // function for event listeners
 movieApp.eventListeners = function () {
-    // console.log(`hiiii`);
-
     // grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
@@ -62,9 +87,14 @@ movieApp.eventListeners = function () {
         console.log(movieApp.genre);
         // get back a genre as a string
         movieApp.getGenreId(movieApp.genre);
+        console.log(movieApp.getMovies);
+        movieApp.getMovies();
     });
     console.log("test")
 }
+
+
+
 
 // let genre2 = movieApp.genre;
 movieApp.getGenreId = function (movieGenre) {
