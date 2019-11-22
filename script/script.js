@@ -50,14 +50,46 @@ let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
     // `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}`;
 
-// API CALL =========================
+// API CALL TO GET MOVIES BASED ON GENRE =========================
+// movieApp.getMovies = function () {
+
+// // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
+//     const apiKey = "20e7d413ebcc68553bf10a0da5428763";
+//     // const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}&include_adult=falseith_original_languwage='en-US'`;
+//      const apiUrl = `https://api.themoviedb.org/3/discover/movie`;
+    
+
+//     return $.ajax({
+//         url: apiUrl,
+//         method: 'GET',
+//         dataType: 'json',
+//         data: {
+//             api_key: apiKey,
+//             format: 'json',
+//             with_genres: `${movieApp.selectedGenreID}`,
+//             include_adult: false,
+//             with_original_language: 'en',
+//             primary_release_year: movieApp.year
+//         }
+//     }).then(function(resultsObject) {
+//         const movieResults = resultsObject; 
+//         const resultLength = movieResults.results.length
+//         const randomNumber = (Math.floor(Math.random() * resultLength));
+//         const filteredResults = movieResults.results[randomNumber];
+//         console.log(filteredResults);
+//         movieApp.displayMovies(filteredResults);
+//     });
+// }; 
+
+// API CALL TO GET MOVIES BASED ON NAME =========================
 movieApp.getMovies = function () {
 
-// API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
+    // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
     const apiKey = "20e7d413ebcc68553bf10a0da5428763";
-    // const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}&include_adult=falseith_original_languwage='en-US'`;
-     const apiUrl = `https://api.themoviedb.org/3/discover/movie`;
-    
+    const apiUrl = `https://api.themoviedb.org/3/search/person`;
+
+
+    // let u = `https://api.themoviedb.org/3/search/person?api_key=20e7d413ebcc68553bf10a0da5428763&query=Tom%20Cruise`
 
     return $.ajax({
         url: apiUrl,
@@ -66,20 +98,23 @@ movieApp.getMovies = function () {
         data: {
             api_key: apiKey,
             format: 'json',
-            with_genres: `${movieApp.selectedGenreID}`,
+            // with_genres: `${movieApp.selectedGenreID}`,
+            query: "Tom Cruise",
             include_adult: false,
             with_original_language: 'en',
-            primary_release_year: movieApp.year
+            // primary_release_year: movieApp.year
         }
-    }).then(function(resultsObject) {
-        const movieResults = resultsObject; 
+    }).then(function (resultsObject) {
+        const movieResults = resultsObject;
         const resultLength = movieResults.results.length
         const randomNumber = (Math.floor(Math.random() * resultLength));
         const filteredResults = movieResults.results[randomNumber];
-        console.log(filteredResults);
+        // console.log(filteredResults);
         movieApp.displayMovies(filteredResults);
-    }); 
+    });
 }; 
+
+
 
 //DYNAMICALLY POPULATE MOVIE INFO 
 //         //IMAGE OF MOVIE POSTER
