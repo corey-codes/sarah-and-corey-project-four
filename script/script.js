@@ -68,7 +68,8 @@ movieApp.getMovies = function () {
             format: 'json',
             with_genres: `${movieApp.selectedGenreID}`,
             include_adult: false,
-            with_original_language: 'en'
+            with_original_language: 'en',
+            primary_release_year: movieApp.year
         }
     }).then(function(resultsObject) {
         const movieResults = resultsObject; 
@@ -121,7 +122,7 @@ movieApp.eventListeners = function () {
     $('form').on('submit', function (event) {
         event.preventDefault();
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
-        movieApp.year = $('#selectedYear').text();
+        movieApp.year = $('#selectedYear').val();
         console.log(movieApp.year);
         
         // get back a genre as a string
