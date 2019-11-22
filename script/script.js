@@ -9,8 +9,7 @@
 //     movieApp.getInfo = function () {
 //     }
 
-//     
-console.log("hi")
+//    
 // NAMESPACING =========================================================
 const movieApp = {};
 
@@ -38,6 +37,14 @@ movieApp.genreCodes = {
 movieApp.genre = "";
 movieApp.selectedGenreID = "";
 
+// USER INPUT USED TO GET ASSOCIATED GENRE ID #
+movieApp.getGenreId = function (movieGenre) {
+    let userSelectedMovieGenre = movieGenre;
+    let movieArray = movieApp.genreCodes;
+    movieApp.selectedGenreID = movieArray[userSelectedMovieGenre];
+}
+
+
 // const movieResult = 
 let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
@@ -48,18 +55,21 @@ movieApp.getMovies = function () {
 
 // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* ===========
     const apiKey = "20e7d413ebcc68553bf10a0da5428763";
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}&include_adult=falsewith_original_language='en-US'`;
+    // const apiUrl = `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}&include_adult=falseith_original_languwage='en-US'`;
+     const apiUrl = `https://api.themoviedb.org/3/discover/movie`;
     
 
     return $.ajax({
         url: apiUrl,
         method: 'GET',
         dataType: 'json',
-        // data: {
-        //     api_key: apiKey,
-        //     format: 'json'
-        // }
-
+        data: {
+            api_key: apiKey,
+            format: 'json',
+            with_genres: `${movieApp.selectedGenreID}`,
+            include_adult: false,
+            with_original_language: 'en'
+        }
     }).then(function(resultsObject) {
         const movieResults = resultsObject; 
         const resultLength = movieResults.results.length
@@ -105,12 +115,14 @@ movieApp.resetPage = function() {
 }
 
 
-// function for event listeners
+// EVENT LISTENER
 movieApp.eventListeners = function () {
 // grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
+        movieApp.year = $('#selectedYear').text();
+        console.log(movieApp.year);
         
         // get back a genre as a string
         // reset results section
@@ -126,13 +138,6 @@ movieApp.eventListeners = function () {
     //     // console.log("clicked");
     //     movieApp.resetPage();
     // })
-}
-
-// let genre2 = movieApp.genre;
-movieApp.getGenreId = function (movieGenre) {
-    let userSelectedMovieGenre = movieGenre;
-    let movieArray = movieApp.genreCodes;
-    movieApp.selectedGenreID = movieArray[userSelectedMovieGenre];
 }
 
 // START APP
