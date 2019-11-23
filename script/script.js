@@ -1,16 +1,4 @@
-//     // movieApp.genre;
-//     // movieApp.collectInfo = function () {
-//     //     //GENRE (SET TO EXCLUDE PORN)
-//     //     //YEAR
-//     //     // let genre;
-//     // }
-// ​
-//     //PASS ALONG USER PROVIDED SEARCH PARAMETERS 
-//     movieApp.getInfo = function () {
-//     }
-
-//    
-// NAMESPACING =========================================================
+ // NAMESPACING =========================================================
 const movieApp = {};
 
 // CONVERT GENRE CHOICE INTO NUMBER CODE FOR API
@@ -34,6 +22,8 @@ movieApp.genreCodes = {
     war: 10752,
     western: 37
 }
+
+// INITIALIZING VARIABLES
 movieApp.genre = "";
 movieApp.selectedGenreID = "";
 
@@ -102,7 +92,7 @@ movieApp.getMovies = function () {
             query: "Tom Cruise",
             include_adult: false,
             with_original_language: 'en',
-            // primary_release_year: movieApp.year
+            primary_release_year: movieApp.year
         }
     }).then(function (resultsObject) {
         const movieResults = resultsObject;
@@ -151,11 +141,13 @@ movieApp.resetPage = function() {
 }
 
 
-// EVENT LISTENER
+// EVENT LISTENERS
 movieApp.eventListeners = function () {
-// grab user input (selected drop-down menu option)
+    // SUBMIT form
+    // grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
+        // 
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
         movieApp.year = $('#selectedYear').val();
         console.log(movieApp.year);
@@ -176,7 +168,7 @@ movieApp.eventListeners = function () {
     // })
 }
 
-// START APP
+// INITALIZE APP
 movieApp.init = function () {
     movieApp.eventListeners();
 }
