@@ -116,9 +116,11 @@ movieApp.displayMovies = function(results) {
     $('.resultsContent').append(  
         `
         <div class="resultsInfo">
-            <h2>${results.title}</h2>
-            <p>${results.overview}</p>
-            <img src="${apiImagePath}${results.poster_path}">
+            <div class="resultsText">
+                <h2>${results.title}</h2>
+                <p>${results.overview}</p>
+            </div>
+            <img class="resultsImg" src="${apiImagePath}${results.poster_path}">
         </div>`
         ) 
         // console.log(results.poster_path);

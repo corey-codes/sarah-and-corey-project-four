@@ -18,15 +18,17 @@
 <body>
 
 <!-- HEADER -->
-    <header class="header">
+    <header class="header parallax">
         
-        <div class="headerCopy wrapper">
+        <div class="headerCopy wrapper parallaxLayer parallaxLayerBase ">
 
-            <h1>Movie Roulette</h1>
-
-            <p>The app for indecisive people</p>
+            <div class="headerText">
+                <h1>Movie Roulette</h1>
+    
+                <p>The app for indecisive people</p>
+            </div>
   
-            <a href="#" class="btn startBtn">Tell me what to do!</a>
+            <a href="#" class="btn startBtn">Tell me what to watch!</a>
 
         </div>
 
@@ -82,12 +84,12 @@
                             <option value="releaseYear">Movie release year</option>
             
                         </select> -->
-                        <input type="number" max="2020" min="1920" name="" id="selectedYear">
+                        <input type="number" max="2020" min="1920" name="" id="selectedYear" placeholder="Release year (optional)">
 
                         <!-- actress/actor input -->
-                        <input type="text" id="selectedCast" placeholder="Actor/Actress name">
+                        <input type="text" id="selectedCast" placeholder="Actor/Actress name (optional)">
 
-                        <button type="submit">Search</button>
+                        <button type="submit" class="btn">Search</button>
     
                     </form>
     
@@ -96,16 +98,25 @@
             </div>
 
         </section>
+<!-- IMAGE DIVIDER -->
+
+        <div class="imdDivider wrapper">
+            <img src="./styles/assets/hollywoodSign.jpg" alt="A shot of the Hollywood Sign in the hills of California">
+        </div>
 
 <!-- RESULTS AREA -->
         <section class="resultsArea">
 
-            <div class="resultsContent wrapper">
+            <div class="wrapper">
+                
+                <div class="resultsContent">
+    
+                    <!-- div for the image -->
+                    <!-- div for the content -->
+    
+                    <!-- <button class="btn resetBtn">Try Again</button> -->
+                </div>
 
-                <!-- div for the image -->
-                <!-- div for the content -->
-
-                <!-- <button class="btn resetBtn">Try Again</button> -->
             </div>
 
         </section>

@@ -1,16 +1,18 @@
 // PARTIALS =============================
 @import "./partials/setup";
+@import "./partials/variables";
 @import "./partials/global";
 @import "./partials/visually-hidden";
 @import "./partials/skip-link";
 @import "./partials/mixins";
+@import "./partials/parallax";
 
 // VARIABLES =======================
 // COLOR ------
 $color-1:  #14263d;
 $color-2: #B0ABE3;
 $color-3: #c91e8d;
-$color-5: #232323;
+$color-4: #232323;
 $color-5:#FFFFFF;
 
 // GENERAL BODY STYLES =======================
@@ -22,7 +24,8 @@ html {
 body {
     font-family: 'Libre Baskerville', serif;
     font-family: 'Nunito', sans-serif;
-    
+    background-image: url('./assets/round.png');
+    background-repeat: repeat;   
 }
 
 img {
@@ -32,7 +35,7 @@ img {
 .wrapper {
     max-width: 1280px;
     width: 80%;
-    margin: 0 auto;  
+    margin: 0 auto;
 }
 
 // USE CAMEL CASE!! ===========================
@@ -43,7 +46,7 @@ img {
 
 // SECTION STYLES ==============================
 
-.header, .searchArea, .resultsArea, .footer {
+.header, .headerCopy, .searchSection, .resultsArea, .footer {
     padding: 3rem 0;
 }
 
@@ -52,17 +55,49 @@ img {
 header{
     height: 90vh;
     display: flex;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url("./assets/movieCollage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    align-items: center;
+
+    // h1, p, a {
+        
+    // }
+
+    .headerCopy {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+
+    .headerText {
+        margin: 2rem 1rem;
+
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 0 auto;
+    }
 }
 
 
-
-
 //SEARCH ========================================
+.searchIntro, .searchArea {
+    background-color: #14263d;
+    padding: 3rem 2rem; 
+}
+
+// .searchIntro {
+//     // color: $color-5;
+// }
 
 .searchArea {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
 
     form {
         display: flex;
@@ -71,8 +106,11 @@ header{
         padding: 0 3rem;
         align-items: center;
 
-        select {
+        select, input {
             width: 80%;
+            font-size: 1.6rem;
+            margin: 1rem;
+            padding: 1rem;
         }
 
         button {
@@ -84,7 +122,33 @@ header{
 
 // RESULTS ======================================
 
+// .resultsReturnSection {
+    // display: flex;
+// }
+
+.resultsContent {
+    padding: 3rem 2rem; 
+    background-color: $color-1;
+
+    .resultsInfo {
+        display: flex;
+        justify-content: space-between;
+
+        .resultsText {
+            flex-grow: 2;
+        }
+
+        .resultsImg {
+            flex-grow: 1;
+            width: 40%;
+            padding-left: 2rem; 
+        }
+    }
+    
+}
+
 // FOOTER =======================================
 .footer {
     text-align: center;
+    background-color: $color-1;
 }

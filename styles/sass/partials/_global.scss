@@ -8,6 +8,7 @@ h1, h2, h3 {
     font-family: 'Libre Baskerville';
     line-height: 6rem;
     margin: 2rem 0;
+    color: $color-5;
 }
 
 h1 {
@@ -22,10 +23,11 @@ h3 {
     font-size: 3.5rem;
 }
 
-p, a {
+p, a, .btn {
     font-family: 'Nunito';
     font-size: 1.8rem;
     line-height: 2.5rem;
+    color: $color-5;
 }
 
 a {
@@ -51,4 +53,12 @@ input {
 
 textarea {
     border: none;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: $color-3;
+    font-weight: 600;
+    text-transform: uppercase;
 }
