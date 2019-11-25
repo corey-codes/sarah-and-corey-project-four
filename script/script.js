@@ -26,6 +26,7 @@ movieApp.genreCodes = {
 // INITIALIZING VARIABLES
 movieApp.genre = "";
 movieApp.selectedGenreID = "";
+movieApp.actorId = "";
 
 // USER INPUT USED TO GET ASSOCIATED GENRE ID #
 movieApp.getGenreId = function (movieGenre) {
@@ -34,8 +35,7 @@ movieApp.getGenreId = function (movieGenre) {
     movieApp.selectedGenreID = movieArray[userSelectedMovieGenre];
 }
 
-
-// const movieResult = 
+// URL for movie posters
 let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
     // `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=${movieApp.selectedGenreID}`;
