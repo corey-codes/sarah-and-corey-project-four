@@ -242,6 +242,10 @@ textarea {
   text-transform: uppercase;
 }
 
+.btn:hover {
+  background-color: #B0ABE3;
+}
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
@@ -304,6 +308,7 @@ body {
   font-family: 'Nunito', sans-serif;
   background-image: url("./assets/round.png");
   background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 img {
@@ -333,6 +338,7 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url("./assets/movieCollage.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -354,6 +360,10 @@ header .headerCopy {
 
 header .headerText {
   margin: 2rem 1rem;
+}
+
+header .headerText p {
+  font-size: 3rem;
 }
 
 header .btn {
@@ -402,6 +412,11 @@ header .btn {
 
 .searchArea form button {
   display: inline-block;
+}
+
+.searchArea .searchAreaImg {
+  width: 40%;
+  height: 100%;
 }
 
 .resultsContent {

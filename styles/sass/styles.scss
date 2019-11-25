@@ -25,7 +25,8 @@ body {
     font-family: 'Libre Baskerville', serif;
     font-family: 'Nunito', sans-serif;
     background-image: url('./assets/round.png');
-    background-repeat: repeat;   
+    background-repeat: repeat; 
+    background-attachment: fixed;  
 }
 
 img {
@@ -58,6 +59,7 @@ header{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url("./assets/movieCollage.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     align-items: center;
 
@@ -74,6 +76,10 @@ header{
 
     .headerText {
         margin: 2rem 1rem;
+
+        p {
+            font-size: 3rem;
+        }
 
     }
 
@@ -116,6 +122,11 @@ header{
         button {
             display: inline-block;
         }
+    }
+
+    .searchAreaImg {
+        width: 40%;
+        height: 100%;
     }
 }
 

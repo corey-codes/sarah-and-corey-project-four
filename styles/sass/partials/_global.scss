@@ -61,4 +61,8 @@ textarea {
     background-color: $color-3;
     font-weight: 600;
     text-transform: uppercase;
+
+        &:hover {
+            background-color: $color-2;
+        }
 }
