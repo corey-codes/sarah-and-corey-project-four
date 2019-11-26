@@ -247,7 +247,14 @@ movieApp.eventListeners = function () {
         // movieApp.getGenreId(movieApp.genre);
         // movieApp.getMovies();
 
+        $(".resultsScroll").toggleClass('hide');
         movieApp.resetPage();
+  
+    });
+
+    $(".resultsScroll").on('click', () => {
+        $('.resultsScroll').toggleClass('hide');
+        console.log('click!');
     });
 
     // event listener for reset button

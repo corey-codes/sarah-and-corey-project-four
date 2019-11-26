@@ -251,6 +251,10 @@ textarea {
   background-color: #B0ABE3;
 }
 
+.hide {
+  display: none;
+}
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
