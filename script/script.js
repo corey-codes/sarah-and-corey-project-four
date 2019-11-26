@@ -40,7 +40,7 @@ let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
 // Function used to GET MOVIES BASED ON GENRE AND YEAR (Discover)
 movieApp.getMoviesDiscover = function () {
-    // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* 
+// API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* 
     let genreTime;
     let personId;
     // if the genre ID is equal to an empty string, set genreTime to be an empty string, otherwise set genreTime equal to the ID
@@ -229,7 +229,7 @@ movieApp.eventListeners = function () {
 
 }
 
-// INITALIZE APP
+// INITIALIZE APP
 movieApp.init = function () {
     movieApp.eventListeners();
 

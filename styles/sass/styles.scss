@@ -40,12 +40,6 @@ img {
     margin: 0 auto;
 }
 
-// USE CAMEL CASE!! ===========================
-
-// * {
-//     border: 1px solid red;
-// }
-
 // SECTION STYLES ==============================
 
 .header, .headerCopy, .searchSection, .resultsArea, .footer {
@@ -64,15 +58,10 @@ header{
     text-align: center;
     align-items: center;
 
-    // h1, p, a {
-        
-    // }
-
     .headerCopy {
         display:flex;
         flex-direction: column;
-        justify-content: center;
-       
+        justify-content: center; 
     }
 
     .headerText {
@@ -96,10 +85,6 @@ header{
     background-color: #14263d;
     padding: 3rem 2rem; 
 }
-
-// .searchIntro {
-//     // color: $color-5;
-// }
 
 .searchArea {
     display: flex;
@@ -147,10 +132,6 @@ header{
 
 // RESULTS ======================================
 
-// .resultsReturnSection {
-    // display: flex;
-// }
-
 .resultsContent {
     padding: 3rem 2rem; 
     background-color: $color-1;
@@ -179,8 +160,6 @@ header{
     background-color: $color-1;
     padding: 1rem;
 }
-
-
 
 // MEDIA QUERIES =====================
 @import "./partials/media-queries";
