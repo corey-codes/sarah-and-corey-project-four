@@ -13,12 +13,22 @@
    }
 
    .searchArea {
-       form {
-           width: 100%;
-           padding: 0;
+       .searchAreaImg {
+           display: inline-block;
+           margin: 0 auto;
        }
  
+       .searchContainer  { 
+           width: 100%;
+    
+           form {
+                   width: 100%;
+                   padding: 0;
+               }
+       }
+       
    }
+
 
    .resultsContent {
        .resultsInfo {

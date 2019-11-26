@@ -61,7 +61,6 @@ movieApp.getMoviesDiscover = function () {
         data: {
             api_key: apiKey,
             format: 'json',
-            // with_genres: `${movieApp.selectedGenreID}`,
             with_genres: genreTime,
             include_adult: false,
             with_original_language: 'en',
@@ -73,16 +72,11 @@ movieApp.getMoviesDiscover = function () {
         const resultLength = movieResults.results.length
         const randomNumber = (Math.floor(Math.random() * resultLength));
         const filteredResults = movieResults.results[randomNumber];
-        console.log(filteredResults);
-        // movieApp.displayMovies(filteredResults);
+        
 
         // if there are no results
         if (resultsObject.total_results === 0) {
-            console.log("No results for you!");
-
-            // $('#searchArea').append(
-            //     '<a haref=#resultsSection><i class="fas fa-arrow-circle-down"></i></a>'
-            // )
+            
 
             $('.resultsContent').append(
                 `
@@ -100,7 +94,7 @@ movieApp.getMoviesDiscover = function () {
             movieApp.displayMovies(filteredResults);
         }
     }).fail(function (error) {
-        console.log(error);
+    
 
     })
 };
@@ -112,9 +106,6 @@ movieApp.getMoviesSearch = function () {
     const apiKey = "20e7d413ebcc68553bf10a0da5428763";
     const apiUrl = `https://api.themoviedb.org/3/search/person`;
 
-
-    // let u = `https://api.themoviedb.org/3/search/person?api_key=20e7d413ebcc68553bf10a0da5428763&query=Tom%20Cruise`
-
     return $.ajax({
         url: apiUrl,
         method: 'GET',
@@ -122,7 +113,6 @@ movieApp.getMoviesSearch = function () {
         data: {
             api_key: apiKey,
             format: 'json',
-            // query: "Tom Cruise",
             query: movieApp.name,
             include_adult: false,
             with_original_language: 'en',
@@ -130,19 +120,9 @@ movieApp.getMoviesSearch = function () {
         }
     }).then(function (resultsObject) {
         movieApp.actorId = resultsObject.results[0].id;
-        console.log(movieApp.actorId);
-        // console.log(resultsObject);
 
         // make another API call based on ID to get all that persons movies
         movieApp.getMoviesDiscover();
-
-
-        // const movieResults = resultsObject;
-        // const resultLength = movieResults.results.length
-        // const randomNumber = (Math.floor(Math.random() * resultLength));
-        // const filteredResults = movieResults.results[randomNumber];
-        // // console.log(filteredResults);
-        // movieApp.displayMovies(filteredResults);
     });
 };
 
@@ -165,7 +145,7 @@ movieApp.displayMovies = function (results) {
             <img class="resultsImg" src="${apiImagePath}${results.poster_path}">
         </div>`
     )
-    // console.log(results.poster_path);
+    
 }
 
 // Function to RESET PAGE
@@ -173,7 +153,7 @@ movieApp.resetPage = function () {
     let $resetGenre = $('#selectedGenre');
     let $resetYear = $('#selectedYear');
     let $resetName = $('#selectedName');
-    // console.log($reset);
+   
 
     // reset genres drop down to say "Genre:"
     $resetGenre[0].selectedIndex = 0;
@@ -206,13 +186,13 @@ movieApp.determineApiCall = function () {
         movieApp.year != "" && movieApp.name != "" ||
         movieApp.genre != "movie genre:" && movieApp.name != "" ||
         movieApp.name != "") {
-        console.log("I picked a movie and a year and a person!");
+        
         movieApp.getMoviesSearch();
 
         // else if the user selected from ONLY the genre and(or) year inputs, then make one API call (Discover) 
         // genre, year, genre/year
     } else if (movieApp.genre != "movie genre:" || movieApp.year != "" || movieApp.genre != "movie genre:" && movieApp.year != "") {
-        console.log("I picked a genre and a year!");
+        
         movieApp.getMoviesDiscover();
     }
 }
@@ -224,28 +204,18 @@ movieApp.eventListeners = function () {
     // grab user input (selected drop-down menu option)
     $('form').on('submit', function (event) {
         event.preventDefault();
-        console.log(`clicked button`);
-
-
-        // save user input to variabes
+      
+        // save user input to variables
         // GENRE (use the genre to get associated ID#)
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
-        console.log(movieApp.genre);
+     
         movieApp.getGenreId(movieApp.genre);
         // YEAR
         movieApp.year = $('#selectedYear').val();
-        console.log(movieApp.year);
+      
         // ACTOR/ACTRESS NAME
         movieApp.name = $('#selectedName').val();
-        console.log(movieApp.name);
-
-        // get back a genre as a string
-        // reset results section
-        // remove current movie+info
-        // $('.resultsInfo').remove();
-        // movieApp.resetPage();
-        // movieApp.getGenreId(movieApp.genre);
-        // movieApp.getMovies();
+        
 
         $(".resultsScroll").toggleClass('hide');
         movieApp.resetPage();
@@ -254,25 +224,19 @@ movieApp.eventListeners = function () {
 
     $(".resultsScroll").on('click', () => {
         $('.resultsScroll').toggleClass('hide');
-        console.log('click!');
+     
     });
 
-    // event listener for reset button
-    // $('.resetBtn').on('click', function() {
-    //     // console.log("clicked");
-    //     movieApp.resetPage();
-    // })
 }
 
 // INITALIZE APP
 movieApp.init = function () {
     movieApp.eventListeners();
-    console.log("initialized");
 
 }
 // DOC READY
 $(function () {
     movieApp.init();
-    console.log("doc ready");
+  
 
 });
