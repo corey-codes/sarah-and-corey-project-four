@@ -110,7 +110,6 @@ header{
             width: 40%;
             height: 100%;
             margin: 1rem 0;
-            padding: 1rem 0;
     }
 
     .searchContainer { 
@@ -129,6 +128,10 @@ header{
                 font-size: 1.6rem;
                 margin: 1rem;
                 padding: 1rem;
+            }
+
+            select {
+                border-radius: 0;
             }
 
             button {
@@ -163,7 +166,8 @@ header{
 
         .resultsImg {
             width: 50%;
-            padding-left: 2rem; 
+            padding-left: 2rem;
+            object-fit: cover; 
         }
     }
     
@@ -173,6 +177,7 @@ header{
 .footer {
     text-align: center;
     background-color: $color-1;
+    padding: 1rem;
 }
 
 

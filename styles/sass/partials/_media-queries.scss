@@ -1,6 +1,6 @@
+// MEDIA QUERIES
 
-
-
+// MEDIUM SCREEN ========================
 
 @media (max-width: 780px) {
    header {
@@ -26,7 +26,6 @@
                    padding: 0;
                }
        }
-       
    }
 
 
@@ -46,4 +45,13 @@
        margin: 0 auto;
    }
 
+}
+
+// SMALL SCREENS ========================
+
+@media (max-width: 550px) {
+   
+    html {
+       font-size: 55%;
+   } 
 }

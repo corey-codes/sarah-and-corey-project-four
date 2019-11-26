@@ -213,6 +213,11 @@ p, a, .btn {
 i {
   font-size: 4rem;
   padding: 1rem;
+  color: #c91e8d;
+}
+
+i:hover {
+  color: #B0ABE3;
 }
 
 a {
@@ -372,7 +377,6 @@ header .btn {
   width: 40%;
   height: 100%;
   margin: 1rem 0;
-  padding: 1rem 0;
 }
 
 .searchArea .searchContainer {
@@ -404,6 +408,10 @@ header .btn {
   padding: 1rem;
 }
 
+.searchArea .searchContainer form select {
+  border-radius: 0;
+}
+
 .searchArea .searchContainer form button {
   display: inline-block;
 }
@@ -430,11 +438,14 @@ header .btn {
 .resultsContent .resultsInfo .resultsImg {
   width: 50%;
   padding-left: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .footer {
   text-align: center;
   background-color: #14263d;
+  padding: 1rem;
 }
 
 @media (max-width: 780px) {
@@ -467,5 +478,11 @@ header .btn {
   .resultsImg {
     display: inline-block;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  html {
+    font-size: 55%;
   }
 }

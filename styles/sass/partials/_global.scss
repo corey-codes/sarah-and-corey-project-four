@@ -33,6 +33,11 @@ p, a, .btn {
 i {
     font-size: 4rem;
     padding: 1rem;
+    color: $color-3;
+
+    &:hover {
+            color: $color-2;
+        }  
 }
 
 a {
