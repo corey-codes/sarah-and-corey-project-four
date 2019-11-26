@@ -7,7 +7,7 @@
 <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Nunito:400,400i,600&display=swap"rel="stylesheet">
 <!-- FONT AWESOME -->
-
+    <script src="https://kit.fontawesome.com/5fe8efb412.js" crossorigin="anonymous"></script>
 <!-- FAVICON -->
     <link rel="icon" href="./styles/assets/favicon.jpg">
 <!-- STYLES -->
@@ -28,7 +28,7 @@
                 <p>The movie app for indecisive people</p>
             </div>
   
-            <a href="#" class="btn startBtn">Tell me what to watch!</a>
+            <a href="#searchSection" class="btn startBtn">Tell me what to watch!</a>
 
         </div>
 
@@ -37,64 +37,71 @@
     <main>
 
 <!-- SEARCH AREA -->
-        <section class="searchSection">
+        <section class="searchSection" id="searchSection">
 
             <div class="wrapper">
 
                 <div class="searchIntro">
     
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quibusdam consequuntur autem asperiores impedit ipsa nihil omnis similique rerum quae, repudiandae, vero dolore aut repellendus nemo officiis nam doloremque. Exercitationem.</p>
+                    <p>Can't decide what to watch?  Stuck in an edless loop of Googling movie titles until you fall asleep without ever watching a movie?  Stop the madness!  With Movie Roulette you can pick one to three variables and let your movie watching fate be decided for you.</p>
     
                 </div>
     
                 <div class="searchArea">
-    
+                    
                     <div class="searchAreaImg">
-
+    
                         <img src="./styles/assets/bingeWatcher.jpg" alt="Placeholder Image" class="searchImg">
-
+    
                     </div>
     
-                    <form action="" class="searchBars">
-    
-                        <select name="" id="selectedGenre" class="searchBars">
-                            <option value="movieGenre">Movie genre:</option>
-                            <option value="">Action</option>
-                            <option value="0">Adventure</option>
-                            <option value="1">Animation</option>
-                            <option value="2">Comedy</option>
-                            <option value="3">Crime</option>
-                            <option value="4">Documentary</option>
-                            <option value="5">Drama</option>
-                            <option value="6">Family</option>
-                            <option value="7">Fantasy</option>
-                            <option value="8">History</option>
-                            <option value="9">Horror</option>
-                            <option value="10">Music</option>
-                            <option value="11">Myster</option>
-                            <option value="12">Romance</option>
-                            <option value="9">Scifi</option>
-                            <option value="10">Thriller</option>
-                            <option value="11">War</option>
-                            <option value="12">Western</option>
-                        </select>
+                    <div class="searchContainer">
                         
-                        <!-- <select name="" id="selectedYear" class="searchBar2">
+                        <form action="" class="searchBars">
+        
+                            <select name="selectGenre" id="selectedGenre" class="searchBars">
+                            <label for="selectGenre" class="visually-hidden"></label>
+                                <option value="movieGenre">Movie genre:</option>
+                                <option value="0">Action</option>
+                                <option value="1">Adventure</option>
+                                <option value="2">Animation</option>
+                                <option value="3">Comedy</option>
+                                <option value="4">Crime</option>
+                                <option value="5">Documentary</option>
+                                <option value="6">Drama</option>
+                                <option value="7">Family</option>
+                                <option value="8">Fantasy</option>
+                                <option value="9">History</option>
+                                <option value="10">Horror</option>
+                                <option value="11">Music</option>
+                                <option value="12">Myster</option>
+                                <option value="13">Romance</option>
+                                <option value="14">Scifi</option>
+                                <option value="15">Thriller</option>
+                                <option value="16">War</option>
+                                <option value="17">Western</option>
+                            </select>
+                
+                            </select>
+                            <input type="number" max="2020" min="1920" name="" id="selectedYear" placeholder="Release year (optional)">
+    
+                            <!-- actress/actor input -->
+                            <input type="text" id="selectedName" placeholder="Actor/Actress name (optional)">
+    
+                            <button type="submit" class="btn">Search</button>
                             
-                            <option value="releaseYear">Movie release year</option>
-            
-                        </select> -->
-                        <input type="number" max="2020" min="1920" name="" id="selectedYear" placeholder="Release year (optional)">
+                        </form>
+                       
+                        <div class="resultsScroll">
+        
+                            <a href="#resultsArea"><i class="fas fa-arrow-circle-down"></i></a>
+        
+                        </div>
+                    </div>
 
-                        <!-- actress/actor input -->
-                        <input type="text" id="selectedName" placeholder="Actor/Actress name (optional)">
-
-                        <button type="submit" class="btn">Search</button>
-    
-                    </form>
-    
                 </div>
 
+                    
             </div>
 
         </section>
@@ -105,7 +112,7 @@
         </div> -->
 
 <!-- RESULTS AREA -->
-        <section class="resultsArea">
+        <section class="resultsArea" id="resultsArea">
 
             <div class="wrapper">
                 
@@ -135,6 +142,7 @@
     
 <!--******************************************************-->
 <!-- JQUERY -->
+<script src="moveTo.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <!-- JAVASCRIPT -->

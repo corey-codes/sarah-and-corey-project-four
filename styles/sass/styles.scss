@@ -5,20 +5,21 @@
 @import "./partials/visually-hidden";
 @import "./partials/skip-link";
 @import "./partials/mixins";
-@import "./partials/parallax";
 
-// VARIABLES =======================
-// COLOR ------
-$color-1:  #14263d;
-$color-2: #B0ABE3;
-$color-3: #c91e8d;
-$color-4: #232323;
-$color-5:#FFFFFF;
+
+// // VARIABLES =======================
+// // COLOR ------
+// $color-1:  #14263d;
+// $color-2: #B0ABE3;
+// $color-3: #c91e8d;
+// $color-4: #232323;
+// $color-5:#FFFFFF;
 
 // GENERAL BODY STYLES =======================
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,9 +42,9 @@ img {
 
 // USE CAMEL CASE!! ===========================
 
-* {
-    border: 1px solid red;
-}
+// * {
+//     border: 1px solid red;
+// }
 
 // SECTION STYLES ==============================
 
@@ -103,32 +104,42 @@ header{
 .searchArea {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        padding: 0 3rem;
-        align-items: center;
-
-        select, input {
-            width: 80%;
-            font-size: 1.6rem;
-            margin: 1rem;
-            padding: 1rem;
-        }
-
-        button {
-            display: inline-block;
-        }
-    }
+    align-items: flex-start; 
 
     .searchAreaImg {
-        width: 40%;
-        height: 100%;
+            width: 40%;
+            height: 100%;
+            margin: 1rem 0;
+            padding: 1rem 0;
     }
+
+    .searchContainer { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+
+        form {
+            text-align: center;
+            padding: 0 2rem;
+            align-items: center;
+
+            select, input {
+                width: 80%;
+                font-size: 1.6rem;
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            button {
+                display: inline-block;
+            }
+        }
+        
+    }
+
 }
+
 
 
 // RESULTS ======================================
@@ -146,12 +157,12 @@ header{
         justify-content: space-between;
 
         .resultsText {
-            flex-grow: 2;
+            padding-right: 2rem;
+            width: calc(50% - 2rem);
         }
 
         .resultsImg {
-            flex-grow: 1;
-            width: 40%;
+            width: 50%;
             padding-left: 2rem; 
         }
     }
@@ -163,3 +174,8 @@ header{
     text-align: center;
     background-color: $color-1;
 }
+
+
+
+// MEDIA QUERIES =====================
+@import "./partials/media-queries";

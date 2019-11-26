@@ -1,0 +1,39 @@
+
+
+
+
+@media (max-width: 780px) {
+   header {
+       height: 70vh;
+   } 
+
+    .searchArea,
+    .resultsInfo {
+       flex-direction: column;
+   }
+
+   .searchArea {
+       form {
+           width: 100%;
+           padding: 0;
+       }
+ 
+   }
+
+   .resultsContent {
+       .resultsInfo {
+           .resultsText {
+               margin-bottom: 2rem;
+               padding-right: 0;
+               width: 100%;  
+           }
+       }
+   }
+       
+
+   .resultsImg {
+       display: inline-block;
+       margin: 0 auto;
+   }
+
+}

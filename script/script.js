@@ -1,4 +1,4 @@
- // NAMESPACING =========================================================
+// NAMESPACING =========================================================
 const movieApp = {};
 
 // CONVERT GENRE CHOICE INTO NUMBER CODE FOR API
@@ -40,7 +40,7 @@ let apiImagePath = "https://image.tmdb.org/t/p/w500";
 
 // Function used to GET MOVIES BASED ON GENRE AND YEAR (Discover)
 movieApp.getMoviesDiscover = function () {
-// API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* 
+    // API PARAMS *WASN'T WORKING IN GLOBAL SCOPE* 
     let genreTime;
     let personId;
     // if the genre ID is equal to an empty string, set genreTime to be an empty string, otherwise set genreTime equal to the ID
@@ -68,8 +68,8 @@ movieApp.getMoviesDiscover = function () {
             primary_release_year: movieApp.year,
             with_cast: movieApp.actorId
         }
-    }).then(function(resultsObject) {
-        const movieResults = resultsObject; 
+    }).then(function (resultsObject) {
+        const movieResults = resultsObject;
         const resultLength = movieResults.results.length
         const randomNumber = (Math.floor(Math.random() * resultLength));
         const filteredResults = movieResults.results[randomNumber];
@@ -79,6 +79,11 @@ movieApp.getMoviesDiscover = function () {
         // if there are no results
         if (resultsObject.total_results === 0) {
             console.log("No results for you!");
+
+            // $('#searchArea').append(
+            //     '<a haref=#resultsSection><i class="fas fa-arrow-circle-down"></i></a>'
+            // )
+
             $('.resultsContent').append(
                 `
                 <div class="resultsInfo">
@@ -94,11 +99,11 @@ movieApp.getMoviesDiscover = function () {
         } else {
             movieApp.displayMovies(filteredResults);
         }
-    }).fail(function(error) {
+    }).fail(function (error) {
         console.log(error);
-        
+
     })
-}; 
+};
 
 // Function used to GET MOVIES BASED ON ACTOR/ACTRESS NAME (Search) 
 movieApp.getMoviesSearch = function () {
@@ -139,7 +144,7 @@ movieApp.getMoviesSearch = function () {
         // // console.log(filteredResults);
         // movieApp.displayMovies(filteredResults);
     });
-}; 
+};
 
 
 
@@ -148,9 +153,9 @@ movieApp.getMoviesSearch = function () {
 //         //TITLE
 //         //SUMMARY
 
-movieApp.displayMovies = function(results) {
-    
-    $('.resultsContent').append(  
+movieApp.displayMovies = function (results) {
+
+    $('.resultsContent').append(
         `
         <div class="resultsInfo">
             <div class="resultsText">
@@ -159,17 +164,17 @@ movieApp.displayMovies = function(results) {
             </div>
             <img class="resultsImg" src="${apiImagePath}${results.poster_path}">
         </div>`
-        ) 
-        // console.log(results.poster_path);
+    )
+    // console.log(results.poster_path);
 }
 
 // Function to RESET PAGE
-movieApp.resetPage = function() {
+movieApp.resetPage = function () {
     let $resetGenre = $('#selectedGenre');
     let $resetYear = $('#selectedYear');
     let $resetName = $('#selectedName');
     // console.log($reset);
-    
+
     // reset genres drop down to say "Genre:"
     $resetGenre[0].selectedIndex = 0;
 
@@ -185,7 +190,7 @@ movieApp.resetPage = function() {
     $('.resultsInfo').remove();
 
     // call fxn to get new movie
-    
+
     // re-initialize variables
     movieApp.actorId = "";
 
@@ -220,20 +225,20 @@ movieApp.eventListeners = function () {
     $('form').on('submit', function (event) {
         event.preventDefault();
         console.log(`clicked button`);
-        
-        
+
+
         // save user input to variabes
         // GENRE (use the genre to get associated ID#)
         movieApp.genre = $('#selectedGenre option:selected').text().toLowerCase();
         console.log(movieApp.genre);
         movieApp.getGenreId(movieApp.genre);
-         // YEAR
+        // YEAR
         movieApp.year = $('#selectedYear').val();
         console.log(movieApp.year);
         // ACTOR/ACTRESS NAME
         movieApp.name = $('#selectedName').val();
         console.log(movieApp.name);
-        
+
         // get back a genre as a string
         // reset results section
         // remove current movie+info
@@ -256,11 +261,11 @@ movieApp.eventListeners = function () {
 movieApp.init = function () {
     movieApp.eventListeners();
     console.log("initialized");
-    
+
 }
 // DOC READY
 $(function () {
     movieApp.init();
     console.log("doc ready");
-    
+
 });
