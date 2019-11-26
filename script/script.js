@@ -86,7 +86,7 @@ movieApp.getMoviesDiscover = function () {
                         <p>We couldn't find any movies that match your selection, please choose again!</p>
                     </div>
                     <div class="imageContainer">
-                        <img src="./assets/noMovie.jpg">
+                        <img src="./styles/assets/noMovie.jpg">
                     </div>
                 </div>`
             )
@@ -180,7 +180,7 @@ movieApp.resetPage = function () {
 
 // Function to determine which API call should be made
 movieApp.determineApiCall = function () {
-    // if the user slected from ALL THREE inputs, then make two API calls (Discover & Search)
+    // if the user selected from ALL THREE inputs, then make two API calls (Discover & Search)
     if (
         movieApp.genre != "movie genre:" && movieApp.year != "" && movieApp.name != "" ||
         movieApp.year != "" && movieApp.name != "" ||
